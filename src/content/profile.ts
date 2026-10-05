@@ -29,17 +29,17 @@ export const links = {
 } as const;
 
 export type Metric = {
-  value: number;
-  prefix?: string;
-  suffix?: string;
+  // Digits roll like an odometer; any other characters stay static.
+  value: string;
+  unit?: string;
   label: string;
 };
 
 export const metrics: Metric[] = [
-  { value: 4, suffix: " года", label: "в коммерческой разработке, из них 3 — на Go" },
-  { value: 2, suffix: "×", label: "быстрее API после переписывания с Python на Go" },
-  { value: 40, prefix: "+", suffix: "%", label: "пропускной способности после профилирования" },
-  { value: 1, prefix: "<", suffix: "%", label: "потерянных сообщений в очереди уведомлений" },
+  { value: "4", unit: "года", label: "в коммерческой разработке, из них 3 — на Go" },
+  { value: "2×", label: "быстрее API после переписывания с Python на Go" },
+  { value: "+40%", label: "пропускной способности после профилирования" },
+  { value: "<1%", label: "потерянных сообщений в очереди уведомлений" },
 ];
 
 export type AdvantageIcon = "gauge" | "shield" | "layers" | "puzzle" | "check" | "mic";

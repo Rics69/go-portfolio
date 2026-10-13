@@ -200,7 +200,7 @@ export const commits: Commit[] = [
     company: "Сервис практик КФУ",
     role: "Golang-разработчик",
     lines: [
-      { type: "refactor", text: "backend с Python/FastAPI на Go: ~250 → ~120 мс" },
+      { type: "refactor!", text: "backend с Python/FastAPI на Go: ~250 → ~120 мс" },
       { type: "feat", text: "заявки на практику, профили студентов, отчёты" },
       { type: "perf", text: "бенчмарки и pprof: +40% пропускной способности" },
     ],
@@ -229,6 +229,14 @@ export const commits: Commit[] = [
   },
 ];
 
+// Project names for `go mod why` in the stack section.
+const projects = {
+  triotech: "Triotech",
+  kfu: "Сервис практик КФУ",
+  finance: "Сервис учёта финансов",
+  dst: "Дст-Урал",
+};
+
 export type Module = {
   name: string;
   comment?: string;
@@ -239,11 +247,11 @@ export const goMod: { title: string; modules: Module[]; indirect?: boolean }[] =
   {
     title: "core",
     modules: [
-      { name: "go", comment: "основной язык", usedIn: ["Triotech", "КФУ", "Финансы"] },
-      { name: "postgresql", comment: "SQL, миграции goose", usedIn: ["Triotech", "КФУ", "Финансы"] },
-      { name: "grpc", comment: "межсервисное API, auth-модуль", usedIn: ["Triotech"] },
-      { name: "rest-api", comment: "HTTP, Postman", usedIn: ["Triotech", "КФУ"] },
-      { name: "rabbitmq", comment: "retry, dead-letter queue", usedIn: ["Финансы"] },
+      { name: "go", comment: "основной язык", usedIn: [projects.triotech, projects.kfu, projects.finance] },
+      { name: "postgresql", comment: "SQL, миграции goose", usedIn: [projects.triotech, projects.kfu, projects.finance] },
+      { name: "grpc", comment: "межсервисное API, auth-модуль", usedIn: [projects.triotech] },
+      { name: "rest-api", comment: "HTTP, Postman", usedIn: [projects.triotech, projects.kfu] },
+      { name: "rabbitmq", comment: "retry, dead-letter queue", usedIn: [projects.finance] },
       { name: "kafka" },
       { name: "redis" },
       { name: "elasticsearch" },
@@ -253,10 +261,10 @@ export const goMod: { title: string; modules: Module[]; indirect?: boolean }[] =
   {
     title: "tools",
     modules: [
-      { name: "docker", comment: "Dockerfile, compose", usedIn: ["Triotech", "Финансы"] },
+      { name: "docker", comment: "Dockerfile, compose", usedIn: [projects.triotech, projects.finance] },
       { name: "kubernetes" },
-      { name: "testify", comment: "~70% покрытия", usedIn: ["Triotech", "Финансы"] },
-      { name: "pprof", comment: "профилирование, бенчмарки", usedIn: ["КФУ"] },
+      { name: "testify", comment: "~70% покрытия", usedIn: [projects.triotech, projects.finance] },
+      { name: "pprof", comment: "профилирование, бенчмарки", usedIn: [projects.kfu] },
       { name: "git" },
     ],
   },
@@ -264,7 +272,7 @@ export const goMod: { title: string; modules: Module[]; indirect?: boolean }[] =
     title: "indirect",
     indirect: true,
     modules: [
-      { name: "nextjs", comment: "фронтенд-бэкграунд", usedIn: ["Дст-Урал", "КФУ"] },
+      { name: "nextjs", comment: "фронтенд-бэкграунд", usedIn: [projects.dst, projects.kfu] },
       { name: "scrum", comment: "agile, декомпозиция задач" },
     ],
   },

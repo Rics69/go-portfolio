@@ -4,7 +4,7 @@ import { useInView, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { ArrowIcon, ReplayIcon } from "@/components/ui/icons";
 import { apiProfile } from "@/content/profile";
-import { useHost } from "@/hooks/use-host";
+import { useOrigin } from "@/hooks/use-origin";
 import { formatJson, tokenizeJsonLine, type JsonToken } from "@/lib/json";
 
 export const endpoint = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/v1/me`;
@@ -25,14 +25,14 @@ export function ApiTerminal() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.35 });
   const reduce = useReducedMotion();
-  const host = useHost();
+  const origin = useOrigin();
 
   const [run, setRun] = useState(0);
   const [typed, setTyped] = useState(0);
   const [response, setResponse] = useState<Response | null>(null);
   const [printed, setPrinted] = useState(0);
 
-  const command = `curl -s ${host}${endpoint} | jq`;
+  const command = `curl -s ${origin}${endpoint} | jq`;
   const typing = typed < command.length;
   const done = response !== null && printed >= response.lines.length;
 

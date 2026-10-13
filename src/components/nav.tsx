@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useContact } from "@/components/contact/contact-modal";
 import { CloseIcon, MenuIcon } from "@/components/ui/icons";
-import { StatusDot } from "@/components/ui/status-dot";
+import { PixelToad } from "@/components/ui/pixel-toad";
 import { profile } from "@/content/profile";
 import { useActiveSection } from "@/hooks/use-active-section";
 
@@ -45,10 +45,10 @@ export function Nav() {
       >
         <a
           href="#top"
-          className="flex min-h-11 items-center gap-2.5 rounded-full px-4 text-[15px] font-semibold tracking-tight"
+          className="flex min-h-11 items-center gap-2 rounded-full pr-4 pl-3 text-[15px] font-semibold tracking-tight"
           onClick={() => setOpen(false)}
         >
-          <StatusDot />
+          <PixelToad className="h-[34px] w-[40px]" />
           {profile.shortName}
         </a>
 

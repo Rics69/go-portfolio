@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# full-size source photo; the site uses the optimized copies in src/assets
+/public/portfolio-ava.png

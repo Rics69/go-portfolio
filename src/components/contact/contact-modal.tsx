@@ -1,7 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import face from "@/assets/ava-face.jpg";
 import { ArrowIcon, CheckIcon, CloseIcon, CopyIcon, MailIcon, TelegramIcon } from "@/components/ui/icons";
 import { links, profile } from "@/content/profile";
 import { useCopy } from "@/hooks/use-copy";
@@ -103,10 +105,16 @@ function ContactDialog({ onClose }: { onClose: () => void }) {
           <CloseIcon className="size-5" />
         </button>
 
-        <p className="text-eyebrow text-muted">
-          <span className="text-gopher-ink">{"//"}</span> связаться
-        </p>
-        <h2 id="contact-title" className="text-display mt-3 text-[36px] sm:text-[44px]">
+        <div className="flex items-center gap-3 pr-12">
+          <Image src={face} alt="" sizes="56px" className="size-14 shrink-0 rounded-full object-cover" />
+          <div>
+            <p className="text-base leading-tight font-semibold">{profile.name}</p>
+            <p className="mt-0.5 text-[14px] text-muted">
+              {profile.role} · {profile.city}
+            </p>
+          </div>
+        </div>
+        <h2 id="contact-title" className="text-display mt-6 text-[36px] sm:text-[44px]">
           Давайте поговорим
         </h2>
         <p id="contact-text" className="mt-3 text-base leading-relaxed text-muted">

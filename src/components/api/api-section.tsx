@@ -4,12 +4,12 @@ import { ApiTerminal, endpoint } from "@/components/api/api-terminal";
 import { CheckIcon, CopyIcon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/reveal";
 import { useCopy } from "@/hooks/use-copy";
-import { useHost } from "@/hooks/use-host";
+import { useOrigin } from "@/hooks/use-origin";
 
 export function ApiSection() {
-  const host = useHost();
+  const origin = useOrigin();
   const { copied, copy } = useCopy();
-  const command = `curl -s ${host}${endpoint}`;
+  const command = `curl -s ${origin}${endpoint}`;
 
   return (
     <section id="api" className="container-page overflow-x-clip pb-24 md:pb-32">

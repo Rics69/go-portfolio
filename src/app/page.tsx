@@ -17,7 +17,7 @@ export default function Home() {
       <ScrollProgress />
       <ConsoleGreeting />
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <Metrics />
         <ApiSection />

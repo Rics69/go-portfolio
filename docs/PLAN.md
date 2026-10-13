@@ -96,6 +96,6 @@ Next.js 16 (App Router, TypeScript, static export) · Tailwind CSS v4 · Motion 
 - [x] Прогресс скролла, приветствие в консоли и `hire()` в DevTools, футер
 
 ### Фаза 6 — Полировка и деплой
-- [ ] Адаптив 360px → 1440px, доступность, клавиатурная навигация
-- [ ] SEO: metadata, Open Graph картинка, favicon
-- [ ] GitHub Actions → GitHub Pages, README
+- [x] Адаптив 375 / 768 / 1440px, доступность: skip-link, контраст, клавиатурная навигация
+- [x] SEO: metadata, canonical, Open Graph картинка, favicon и apple-icon, стилизованная 404
+- [x] GitHub Actions → GitHub Pages, README

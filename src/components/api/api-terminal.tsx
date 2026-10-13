@@ -117,7 +117,7 @@ export function ApiTerminal() {
         {typing && <Caret />}
         {response && (
           <span className="mt-2 block text-white/40">
-            {response.ok ? `# HTTP 200 OK · ${response.ms} мс · application/json` : "# offline · показываю кэш"}
+            {response.ok ? `# HTTP 200 OK · ${response.ms} мс` : "# offline · показываю кэш"}
           </span>
         )}
         {response?.lines.slice(0, printed).map((line, i) => (

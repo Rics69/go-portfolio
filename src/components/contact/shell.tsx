@@ -231,5 +231,5 @@ const lineTone: Record<Line["kind"], string> = {
   input: "text-paper",
   output: "text-white/80",
   accent: "text-gopher",
-  muted: "text-white/45",
+  muted: "text-white/55",
 };

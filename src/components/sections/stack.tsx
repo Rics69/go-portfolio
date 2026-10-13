@@ -35,7 +35,7 @@ export function Stack() {
                 <p>
                   <Keyword>require</Keyword> (
                 </p>
-                <p className="pl-4 text-faint sm:pl-8">{"// " + block.title}</p>
+                <p className="pl-4 text-muted sm:pl-8">{"// " + block.title}</p>
                 <ul>
                   {block.modules.map((module) => (
                     <li key={module.name}>
@@ -83,7 +83,7 @@ function ModuleLine({ module, indirect, active, onSelect }: ModuleLineProps) {
   const content = (
     <>
       <span className="truncate">{module.name}</span>
-      {comment && <span className="truncate text-faint">{"// " + comment}</span>}
+      {comment && <span className="truncate text-muted">{"// " + comment}</span>}
     </>
   );
   const layout = "grid w-full grid-cols-[minmax(0,13ch)_minmax(0,1fr)] gap-x-4 rounded-lg pr-2 pl-4 text-left sm:pl-8";

@@ -48,6 +48,16 @@
   }
 }
 
+/* Moves a full-width wrapper across its track; the child dot rides along. */
+@keyframes travel {
+  from {
+    transform: translateX(-24px);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
 @theme inline {
   --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;

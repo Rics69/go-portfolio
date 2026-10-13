@@ -112,7 +112,7 @@ export const advantages: Advantage[] = [
   },
 ];
 
-export type CaseTone = "accent" | "light" | "dark" | "muted";
+export type CaseTone = "accent" | "mist" | "dark";
 export type CaseViz = "latency" | "queue" | "hub" | "contract";
 
 export type Case = {
@@ -139,7 +139,7 @@ export const cases: Case[] = [
   },
   {
     id: "finance",
-    tone: "light",
+    tone: "mist",
     viz: "queue",
     label: "Сервис учёта финансов · 2023–2024",
     title: "Уведомления, которые доходят",
@@ -159,7 +159,7 @@ export const cases: Case[] = [
   },
   {
     id: "dst",
-    tone: "muted",
+    tone: "mist",
     viz: "contract",
     label: "Дст-Урал · 2022–2024",
     title: "Фронтенд, который работает в продакшене",

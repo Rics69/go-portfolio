@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { useContact } from "@/components/contact/contact-modal";
 import { CloseIcon, MenuIcon } from "@/components/ui/icons";
 import { StatusDot } from "@/components/ui/status-dot";
 import { profile } from "@/content/profile";
@@ -18,6 +19,7 @@ const sectionIds = ["top", ...items.map((item) => item.id), "contact"] as const;
 
 export function Nav() {
   const active = useActiveSection(sectionIds);
+  const contact = useContact();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -71,12 +73,13 @@ export function Nav() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
+        <button
+          type="button"
+          onClick={contact.open}
           className="ml-1 hidden min-h-11 items-center rounded-full bg-ink px-5 text-[15px] font-semibold text-paper transition-colors hover:bg-ink-soft md:flex"
         >
           Связаться
-        </a>
+        </button>
 
         <button
           type="button"
@@ -114,13 +117,16 @@ export function Nav() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="mt-2 flex min-h-12 items-center justify-center rounded-2xl bg-ink text-lg font-semibold text-paper"
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  contact.open();
+                }}
+                className="mt-2 flex min-h-12 w-full items-center justify-center rounded-2xl bg-ink text-lg font-semibold text-paper"
               >
                 Связаться
-              </a>
+              </button>
             </motion.div>
           )}
         </AnimatePresence>

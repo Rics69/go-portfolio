@@ -10,7 +10,7 @@ const reel = Array.from({ length: 20 }, (_, i) => i % 10);
 
 export function Metrics() {
   return (
-    <section aria-label="Ключевые цифры" className="container-page pb-24 md:pb-32">
+    <section id="metrics" aria-label="Ключевые цифры" className="container-page pb-24 md:pb-32">
       <dl className="grid grid-cols-2 gap-x-4 sm:gap-x-0 lg:grid-cols-4">
         {metrics.map((metric, i) => (
           <MetricItem key={metric.label} metric={metric} stagger={(i % 4) * 0.12} />

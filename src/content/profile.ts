@@ -28,6 +28,30 @@ export const links = {
   source: "https://github.com/Rics69/go-portfolio",
 } as const;
 
+export type KeyTone = "paper" | "mist" | "ink" | "gopher";
+export type KeyAction = { type: "scroll"; id: string } | { type: "link"; href: string } | { type: "contact" };
+
+export type HeroKey = {
+  // KeyboardEvent.code, so the physical key works in any layout (incl. Russian).
+  code: string;
+  letter: string;
+  label: string;
+  tone: KeyTone;
+  action: KeyAction;
+};
+
+// Spells BACK / END; Enter opens the contact dialog.
+export const heroKeys: HeroKey[] = [
+  { code: "KeyB", letter: "B", label: "Почему я", tone: "paper", action: { type: "scroll", id: "advantages" } },
+  { code: "KeyA", letter: "A", label: "API", tone: "mist", action: { type: "scroll", id: "api" } },
+  { code: "KeyC", letter: "C", label: "Кейсы", tone: "paper", action: { type: "scroll", id: "work" } },
+  { code: "KeyK", letter: "K", label: "Стек", tone: "mist", action: { type: "scroll", id: "stack" } },
+  { code: "KeyE", letter: "E", label: "Опыт", tone: "paper", action: { type: "scroll", id: "experience" } },
+  { code: "KeyN", letter: "N", label: "GitHub", tone: "ink", action: { type: "link", href: links.github } },
+  { code: "KeyD", letter: "D", label: "Цифры", tone: "mist", action: { type: "scroll", id: "metrics" } },
+  { code: "Enter", letter: "Enter", label: "Связаться", tone: "gopher", action: { type: "contact" } },
+];
+
 export type Metric = {
   // Digits roll like an odometer; any other characters stay static.
   value: string;

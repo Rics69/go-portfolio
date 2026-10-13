@@ -1,3 +1,4 @@
+import { ApiSection } from "@/components/api/api-section";
 import { Hero } from "@/components/hero/hero";
 import { Nav } from "@/components/nav";
 import { Advantages } from "@/components/sections/advantages";
@@ -10,6 +11,7 @@ export default function Home() {
       <main>
         <Hero />
         <Metrics />
+        <ApiSection />
         <Advantages />
       </main>
     </>

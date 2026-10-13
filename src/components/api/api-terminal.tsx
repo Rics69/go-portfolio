@@ -1,12 +1,13 @@
 "use client";
 
 import { useInView, useReducedMotion } from "motion/react";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowIcon, ReplayIcon } from "@/components/ui/icons";
 import { apiProfile } from "@/content/profile";
+import { useHost } from "@/hooks/use-host";
 import { formatJson, tokenizeJsonLine, type JsonToken } from "@/lib/json";
 
-const endpoint = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/v1/me`;
+export const endpoint = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/v1/me`;
 
 const tokenColor: Record<JsonToken["kind"], string> = {
   key: "text-gopher",
@@ -20,17 +21,11 @@ type Response = { lines: string[]; ms: number; ok: boolean };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const subscribe = () => () => {};
-
 export function ApiTerminal() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.35 });
   const reduce = useReducedMotion();
-  const host = useSyncExternalStore(
-    subscribe,
-    () => window.location.host,
-    () => "localhost:3000",
-  );
+  const host = useHost();
 
   const [run, setRun] = useState(0);
   const [typed, setTyped] = useState(0);

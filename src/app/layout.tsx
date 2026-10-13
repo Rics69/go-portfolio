@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Onest } from "next/font/google";
+import { ContactProvider } from "@/components/contact/contact-modal";
 import { MotionProvider } from "@/components/motion-provider";
 import { profile } from "@/content/profile";
 import "./globals.css";
@@ -42,7 +43,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" className={`${onest.variable} ${jetbrains.variable} antialiased`}>
       <body className="min-h-dvh">
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          <ContactProvider>{children}</ContactProvider>
+        </MotionProvider>
       </body>
     </html>
   );
